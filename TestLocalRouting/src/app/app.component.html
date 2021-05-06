@@ -1,0 +1,32 @@
+<div class="container">
+  <header>
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse d-flex flex-row-reverse me-4" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link text-dark fs-5" routerLink="/">Home</a>
+          <a class="nav-item nav-link text-dark fs-5" routerLink="/animal">Animal</a>
+          <a class="nav-item nav-link text-dark fs-5 " routerLink="/people">People</a>
+          <select class="form-select" aria-label="Default select example" (change)="select($event)">
+            <option [value]="list.code"  *ngFor="let list of localList">
+              <a href="/{{list.code}}/">
+                {{list.label}}
+              </a>
+            </option>
+          </select>
+
+          <ul>
+            <li *ngFor="let locale of localList">
+              <a href="/{{locale.code}}/">{{locale.label}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <hr class="featurette-divider">
+
+  <router-outlet></router-outlet>
+
+</div>
